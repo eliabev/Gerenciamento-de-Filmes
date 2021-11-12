@@ -11,5 +11,8 @@ import java.util.Optional;
 public interface FilmesRepository extends JpaRepository<Filmes, Long> {
 
 //    @Query("SELECT f FROM Filmes WHERE f.id =?1")
-    Optional<Filmes> findFilmesById (Long id);
+ //   Optional<Filmes> findFilmesById (Long id);
+
+    @Query("SELECT f FROM Filmes f WHERE f.name =?1")
+    Optional<Filmes> findFilmeByName(String name);
 }
