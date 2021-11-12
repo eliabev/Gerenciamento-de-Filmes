@@ -25,4 +25,18 @@ public class FilmesController {
     public void registerNewFilme (@RequestBody Filmes filme) {
         filmesService.addNewFilme(filme);
     }
+
+    @DeleteMapping(path = "{filmeId}")
+    public void deleteFilme(@PathVariable("filmeId") Long filmeId) {
+        filmesService.deleteFilme(filmeId);
+    }
+
+    @PutMapping(path = "{filmeId}")
+    public void updateFilme (
+            @PathVariable("filmeId") Long filmeId,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String director) {
+        filmesService.updateFilme(filmeId, name, director);
+    }
+
 }
